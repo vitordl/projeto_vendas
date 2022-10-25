@@ -32,15 +32,40 @@
                 @endforeach
             </table>
             <div class="text-end">Total: 
-                {{$total}}
+                <span id="total">{{$total}}</span>
                 
             </div>
+
+
+            <div>Quantas parcelas?</div>
+            
+                <select name="parcela" id="parcela">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="10">10x</option>
+                </select>
+                <div class="mt-2"><a href="" class="btn btn-success" onclick="parcelas()">Simular parcelas</a></div>
+            
+            
                 
-                
+            
             
     
         </div>
        
     </div>
 </div>
+
+<script>
+     function parcelas(){
+        var add = document.getElementById('parcela').value;
+       
+        var total = document.getElementById('total').innerHTML;
+        total = total / add 
+        total = total.toFixed(2)
+        alert(total+' x'+ add+' sem juros')
+        
+    }
+</script>
 @endsection
